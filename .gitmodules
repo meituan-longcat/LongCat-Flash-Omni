@@ -1,0 +1,3 @@
+[submodule "longcat_audio_codec"]
+	path = longcat_audio_codec
+	url = https://github.com/meituan-longcat/LongCat-Audio-Codec.git
