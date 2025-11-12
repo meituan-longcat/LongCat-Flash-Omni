@@ -341,11 +341,14 @@ Nothing in this Model Card should be interpreted as altering or restricting the 
 We kindly encourage citation of our work if you find it useful.
 
 ```
-@misc{
-    title={LongCat-Flash-Omni Technical Report}, 
-    author={Meituan LongCat Team}, 
-    year={2025}, 
-    url={https://github.com/meituan-longcat/LongCat-Flash-Omni}, 
+@misc{meituanlongcatteam2025longcatflashomnitechnicalreport,
+      title={LongCat-Flash-Omni Technical Report}, 
+      author={Meituan LongCat Team},
+      year={2025},
+      eprint={2511.00279},
+      archivePrefix={arXiv},
+      primaryClass={cs.MM},
+      url={https://arxiv.org/abs/2511.00279}, 
 }
 ```
 
