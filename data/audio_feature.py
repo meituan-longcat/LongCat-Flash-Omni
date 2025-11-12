@@ -43,7 +43,8 @@ def calculate_mean_var(cmvn_stats_0, cmvn_stats_1, cmvn_count):
 
 
 def next_power_of_2(x: int) -> int:
-    return 1 if x == 0 else 2 ** (x - 1).bit_length()
+    # return 1 if x == 0 else 2 ** (x - 1).bit_length()
+    return 1 if x == 0 else 1 << (x - 1).bit_length()
 
 
 def mel_scale_scalar(freq: float) -> float:
