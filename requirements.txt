@@ -12,4 +12,4 @@ torchvision
 einops
 transformers
 torchaudio
-PyAV
+av
