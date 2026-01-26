@@ -44,7 +44,7 @@ def init_global_config(args):
         # audio
         enable_audio=True,
         max_audio_duration=120,
-        # vison
+        # vision
         video_vit=True,
         max_frame_num=128,
         frame_num=8,
@@ -69,7 +69,7 @@ def create_sglang_engine(args):
     model_path = args.model_path
     sglang_extra_config = dict(
         architectures=["LongcatFlashOmniForCausalLM"],
-        onmi_extra_info=dict(
+        omni_extra_info=dict(
             hf_path=model_path,
             num_multi_ids=config["audio_head_num"],
             audio_head_num=config["audio_head_num"],
@@ -110,7 +110,7 @@ def load_ckpt(model: torch.nn.Module, path: str):
     model.load_state_dict(ckpt)
 
 
-class LoncatOmniInfer:
+class LongCatOmniInfer:
     def __init__(self, args):
         self.node_rank = args.node_rank
         self.config = get_config()
@@ -307,13 +307,13 @@ def main():
         type=str,
         default="cuda",
         choices=["cuda", "cpu"],
-        help="The placement device of the modailty encoder",
+        help="The placement device of the modality encoder",
     )
     args = parser.parse_args()
     init_global_config(args)
 
     os.makedirs(args.output_dir, exist_ok=True)
-    infer_engine = LoncatOmniInfer(args)
+    infer_engine = LongCatOmniInfer(args)
     sampling_params = {
         "temperature": 1,
         "max_new_tokens": 4096,
