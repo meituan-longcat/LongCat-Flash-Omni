@@ -89,7 +89,7 @@ class DataProcessor:
         self.img_transform = LongCatImageTransform(univitar_config)
         self.tokenizer = get_tokenizer()
 
-    def _precess_global_vision_info(self, conversations):
+    def _process_global_vision_info(self, conversations):
         config = get_config()
         omni_video_fix_post_pooling_times = config["omni_video_fix_post_pooling_times"]
         omni_video_fix_post_pooling_tokens = config[
@@ -321,7 +321,7 @@ class DataProcessor:
                 "resized_grid_shapes": None,
             }
 
-    def read_vison_and_audio(self, conversations):
+    def read_vision_and_audio(self, conversations):
         for cidx, message in enumerate(conversations):
             content = message["content"]
 
@@ -347,13 +347,13 @@ class DataProcessor:
     def process(self, conversations):
 
         config = get_config()
-        conversations = self.read_vison_and_audio(conversations)
+        conversations = self.read_vision_and_audio(conversations)
         (
             conversations,
             compress_ratio,
             resized_image_token_nums,
             resized_grid_shapes,
-        ) = self._precess_global_vision_info(conversations)
+        ) = self._process_global_vision_info(conversations)
 
         # tokenize
         tokenizer_kwargs = {
